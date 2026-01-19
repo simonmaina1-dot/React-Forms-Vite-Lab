@@ -21,6 +21,45 @@ the deliverables! Completing these deliverables will also require understanding
 of all the previous topics from this section, including initializing state,
 passing data and callback functions as props, and working with events.
 
+## Component Tree
+
+```
+App (Root Component)
+├── Header
+└── ShoppingList
+    ├── ItemForm
+    ├── Filter
+    └── Item
+```
+
+## State Management
+
+| Component    | State Name         | Purpose                                   |
+|--------------|--------------------|-------------------------------------------|
+| App          | items              | All shopping items (source of truth)      |
+| App          | isDarkMode         | Theme toggle                              |
+| ShoppingList | selectedCategory   | Current category filter                   |
+| ShoppingList | search             | Current search text                       |
+| ItemForm     | name               | Form input: item name                     |
+| ItemForm     | category           | Form input: item category                 |
+
+## Setup Instructions
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Run the development server:
+```bash
+npm run dev
+```
+
+3. Run tests:
+```bash
+npm test
+```
+
 ## Deliverables
 
 ### Filter
@@ -89,6 +128,22 @@ and added to our list of items.
   new array, and then add new elements as well. When you're working with state,
   it's important to pass a _new_ array to the state setter function instead of
   mutating the original array.
+
+## Test Suite
+
+The test suite verifies:
+
+### Filter Tests
+- Search input displays the search term from props
+- `onSearchChange` callback is called when input changes
+- Search input acts as a controlled input
+- Shopping list displays all items initially
+- Shopping list filters items based on search term (full matches)
+- Shopping list filters items based on search term (partial matches)
+
+### ItemForm Tests
+- `onItemFormSubmit` callback is called when form is submitted
+- New item is added to the list when form is submitted
 
 ## Resources
 
